@@ -1,5 +1,6 @@
-function updateNumber(itemNumber, add) {
-    const phoneNumber = document.getElementById(itemNumber);
+// number and price update function 
+function updateNumber(product, price, add) {
+    const phoneNumber = document.getElementById(product + '-number');
     let phoneNumberText = phoneNumber.value;
     if (add == true) {
         phoneNumberText = parseInt(phoneNumberText) + 1;
@@ -8,26 +9,22 @@ function updateNumber(itemNumber, add) {
         phoneNumberText = parseInt(phoneNumberText) - 1;
     }
     phoneNumber.value = phoneNumberText;
-    const phonePrice = document.getElementById('phone-price');
-    phonePrice.innerText = phoneNumberText * 1219;
+    const phonePrice = document.getElementById(product + '-price');
+    phonePrice.innerText = phoneNumberText * price;
 }
-
+// phone plus item 
 document.getElementById('phone-plus').addEventListener('click', function () {
-    updateNumber('phone-number', true);
+    updateNumber('phone', 1220, true);
 })
-
+// phone minus item 
 document.getElementById('phone-minus').addEventListener('click', function () {
-    updateNumber('phone-number', false)
+    updateNumber('phone', 1220, false)
 })
-
-// document.getElementById('casing-plus').addEventListener('click', function () {
-//     updateNumber('casing-number', true)
-// })
-
-// document.getElementById('casing-minus').addEventListener('click', function () {
-//     /*     const casingNumber = document.getElementById('casing-number');
-//         const casingNumberText = casingNumber.value;
-//         casingNumber.value = parseInt(casingNumberText) - 1; */
-
-//     updateNumber('casing-number', false)
-// })
+// case plus item 
+document.getElementById('casing-plus').addEventListener('click', function () {
+    updateNumber('casing', 60, true)
+})
+// casing minus item 
+document.getElementById('casing-minus').addEventListener('click', function () {
+    updateNumber('casing', 60, false)
+})
