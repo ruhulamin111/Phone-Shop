@@ -1,51 +1,33 @@
 function updateNumber(itemNumber, add) {
     const phoneNumber = document.getElementById(itemNumber);
-    const phoneNumberText = phoneNumber.value;
+    let phoneNumberText = phoneNumber.value;
     if (add == true) {
-        phoneNumber.value = parseInt(phoneNumberText) + 1;
+        phoneNumberText = parseInt(phoneNumberText) + 1;
     }
-    else {
-        phoneNumber.value = parseInt(phoneNumberText) - 1;
+    else if (phoneNumberText > 0) {
+        phoneNumberText = parseInt(phoneNumberText) - 1;
     }
+    phoneNumber.value = phoneNumberText;
+    const phonePrice = document.getElementById('phone-price');
+    phonePrice.innerText = phoneNumberText * 1219;
 }
 
 document.getElementById('phone-plus').addEventListener('click', function () {
-    /* const phoneNumber = document.getElementById('phone-number');
-    const phoneNumberText = phoneNumber.value;
-    phoneNumber.value = parseInt(phoneNumberText) + 1; */
-
     updateNumber('phone-number', true);
-
-    const phonePrice = document.getElementById('phone-price');
-    const phonePriceText = phonePrice.innerText;
-    phonePrice.innerText = parseFloat(phonePriceText) + 1219;
 })
 
 document.getElementById('phone-minus').addEventListener('click', function () {
-    /*  const phoneNumber = document.getElementById('phone-number');
-     const phoneNumberText = phoneNumber.value;
-     phoneNumber.value = parseInt(phoneNumberText) - 1; */
-
     updateNumber('phone-number', false)
-
-    const phonePrice = document.getElementById('phone-price');
-    const phonePriceText = phonePrice.innerText;
-    phonePrice.innerText = phonePriceText + 1219;
 })
 
-document.getElementById('casing-plus').addEventListener('click', function () {
-    /*   const casingNumber = document.getElementById('casing-number');
-      const casingNumberText = casingNumber.value;
-      casingNumber.value = parseInt(casingNumberText) + 1; */
+// document.getElementById('casing-plus').addEventListener('click', function () {
+//     updateNumber('casing-number', true)
+// })
 
-    updateNumber('casing-number', true)
+// document.getElementById('casing-minus').addEventListener('click', function () {
+//     /*     const casingNumber = document.getElementById('casing-number');
+//         const casingNumberText = casingNumber.value;
+//         casingNumber.value = parseInt(casingNumberText) - 1; */
 
-})
-
-document.getElementById('casing-minus').addEventListener('click', function () {
-    /*     const casingNumber = document.getElementById('casing-number');
-        const casingNumberText = casingNumber.value;
-        casingNumber.value = parseInt(casingNumberText) - 1; */
-
-    updateNumber('casing-number', false)
-})
+//     updateNumber('casing-number', false)
+// })
